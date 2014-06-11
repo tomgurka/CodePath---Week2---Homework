@@ -1,8 +1,6 @@
 CodePath Week 2 Homework
 ===========================
 
-Implemented
------------
 
 Facebook Login Page
    
