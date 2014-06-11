@@ -4,7 +4,8 @@ CodePath Week 2 Homework
 Implemented
 -----------
 
-Facebook login page -
+Facebook Login Page
+   
     Tapping in the UITextField repositions the elements.
     
     Tapping anywhere dismisses the keyboard.
