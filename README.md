@@ -1,8 +1,8 @@
-CodePath---Week2---Homework
+CodePath Week 2 Homework
 ===========================
 
 Implemented
-===========================
+-----------
 
 Facebook login page -
     Tapping in the UITextField repositions the elements, as shown in the screenshots.
