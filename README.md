@@ -5,9 +5,13 @@ Implemented
 -----------
 
 Facebook login page -
-    Tapping in the UITextField repositions the elements, as shown in the screenshots.
-    Tapping anywhere dismisses the keyboard
-    Password field should be secure with no autocorrection.
-    After tapping log in button, show the loading indicator in the button. After a 2 second delay, check the password.
-    If the password is 'password', transition to the next screen.
+    Tapping in the UITextField repositions the elements.
+    
+    Tapping anywhere dismisses the keyboard.
+    
+    Password field is secure with no autocorrection.
+    
+    After tapping log in button, the loading indicator is showin in the button. 
+    
+    After 2 seconds: 
     If the password is anything else, display the password error alert.
