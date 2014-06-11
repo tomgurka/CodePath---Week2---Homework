@@ -19,6 +19,8 @@
 		E2972E31194812180005DF64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2972E19194812180005DF64 /* UIKit.framework */; };
 		E2972E39194812180005DF64 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2972E37194812180005DF64 /* InfoPlist.strings */; };
 		E2972E3B194812180005DF64 /* Week2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2972E3A194812180005DF64 /* Week2Tests.m */; };
+		E2972E471948128D0005DF64 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2972E451948128D0005DF64 /* MainViewController.m */; };
+		E2972E481948128D0005DF64 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2972E461948128D0005DF64 /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		E2972E36194812180005DF64 /* Week2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Week2Tests-Info.plist"; sourceTree = "<group>"; };
 		E2972E38194812180005DF64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E2972E3A194812180005DF64 /* Week2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Week2Tests.m; sourceTree = "<group>"; };
+		E2972E441948128D0005DF64 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E2972E451948128D0005DF64 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		E2972E461948128D0005DF64 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 			children = (
 				E2972E24194812180005DF64 /* AppDelegate.h */,
 				E2972E25194812180005DF64 /* AppDelegate.m */,
+				E2972E441948128D0005DF64 /* MainViewController.h */,
+				E2972E451948128D0005DF64 /* MainViewController.m */,
+				E2972E461948128D0005DF64 /* MainViewController.xib */,
 				E2972E27194812180005DF64 /* Images.xcassets */,
 				E2972E1C194812180005DF64 /* Supporting Files */,
 			);
@@ -191,6 +199,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = tom;
 				TargetAttributes = {
+					E2972E11194812180005DF64 = {
+						DevelopmentTeam = XA75GS7T4J;
+					};
 					E2972E2C194812180005DF64 = {
 						TestTargetID = E2972E11194812180005DF64;
 					};
@@ -220,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2972E20194812180005DF64 /* InfoPlist.strings in Resources */,
+				E2972E481948128D0005DF64 /* MainViewController.xib in Resources */,
 				E2972E28194812180005DF64 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2972E26194812180005DF64 /* AppDelegate.m in Sources */,
+				E2972E471948128D0005DF64 /* MainViewController.m in Sources */,
 				E2972E22194812180005DF64 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,10 +370,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Week2/Week2-Prefix.pch";
 				INFOPLIST_FILE = "Week2/Week2-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -370,10 +386,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Week2/Week2-Prefix.pch";
 				INFOPLIST_FILE = "Week2/Week2-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
