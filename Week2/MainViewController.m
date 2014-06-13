@@ -7,13 +7,17 @@
 //
 
 #import "MainViewController.h"
+#import "FeedViewController.h"
+
+//Required for the tab bar
+#import "AppDelegate.h"
+
 
 @interface MainViewController ()
 
 // Declare some methods that will be called when the keyboard is about to be shown or hidden
 - (void)willShowKeyboard:(NSNotification *)notification;
 - (void)willHideKeyboard:(NSNotification *)notification;
-- (void)passwordWrong;
 
 //IBO
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
@@ -25,6 +29,8 @@
 
 //Password
 - (void)passwordMethod;
+- (void)passwordWrong;
+
 
 @end
 
@@ -34,6 +40,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         // Custom initialization
         
         // Register the methods for the keyboard hide/show events
@@ -46,6 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
 
 }
@@ -85,7 +93,7 @@
     
     // Get the keyboard height and width from the notification
     // Size varies depending on OS, language, orientation
-    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    //CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     //NSLog(@"Height: %f Width: %f", kbSize.height, kbSize.width);
     
     // Get the animation duration and curve from the notification
@@ -99,12 +107,12 @@
                           delay:0.0
                         options:(animationCurve << 16)
                      animations:^{
-                         self.loginView.frame = CGRectMake(0, self.view.frame.size.height - kbSize.height - self.loginView.frame.size.height, self.loginView.frame.size.width, self.loginView.frame.size.height);
+                         self.loginView.frame = CGRectMake(0, 140, self.loginView.frame.size.width, self.loginView.frame.size.height);
                      }
                      completion:nil];
 }
 
-
+//Hide Keyboard on Touch
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [[self view] endEditing:YES];
@@ -112,8 +120,10 @@
 
 - (IBAction)loginPress:(id)sender {
     NSLog(@"Tapped");
+    //Hide Keyboard
+    [[self view] endEditing:YES];
+    //Start Indicator
     [self.indicatorView startAnimating];
-    
     // Password Timer
     [self performSelector:@selector(passwordMethod) withObject:nil afterDelay:3];
 }
@@ -137,13 +147,25 @@
         
     {
         NSLog(@"Correct Password!");
+        //Stop Indicator
         [self.indicatorView stopAnimating];
+        //Call Next View
+        UIViewController *vc = [[FeedViewController alloc] init];
+        // Fade Transition
+        vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        // Add the Tab Bar Controller
+         [self presentViewController:vc animated:YES completion:nil];
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate.window setRootViewController:appDelegate.tabBarController];
     }
     else
     {
 
         NSLog(@"Incorrect Password!");
+        //Stop Indicator
         [self.indicatorView stopAnimating];
+        //Call Wrong Password Command
         [self performSelector:@selector(passwordWrong) withObject:nil];
 
     }
@@ -151,4 +173,5 @@
     
 }
 @end
+
 

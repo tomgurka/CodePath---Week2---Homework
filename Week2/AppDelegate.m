@@ -7,7 +7,13 @@
 //
 
 #import "AppDelegate.h"
+
 #import "MainViewController.h"
+#import "FeedViewController.h"
+#import "MoreViewController.h"
+#import "RequestsViewController.h"
+#import "MessagesViewController.h"
+#import "NotificationsViewController.h"
 
 
 @implementation AppDelegate
@@ -18,17 +24,51 @@
     // Override point for customization after application launch.
     
     //Kick off the show
-    MainViewController *mainViewController = [[MainViewController alloc] init];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = mainViewController;
+//    MainViewController *mainViewController = [[MainViewController alloc] init];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    self.window.rootViewController = mainViewController;
 
     //Status Bar White
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    
+    //init the view controllers for the tabs, Home and settings
+    
+    //Feed controller
+    FeedViewController *feedVC = [[FeedViewController alloc]init];
+    feedVC.tabBarItem.title = @"News Feed";
+    feedVC.tabBarItem.image = [UIImage imageNamed:@"tabFeed"];
+    
+    //Requests controller
+    RequestsViewController *requestsVC = [[RequestsViewController alloc]init];
+    requestsVC.tabBarItem.title = @"Requests";
+    
+    //Messages controller
+    MessagesViewController *messagesVC = [[MessagesViewController alloc]init];
+    messagesVC.tabBarItem.title = @"Messages";
+    
+    //Notifications controller
+    NotificationsViewController *notificationsVC = [[NotificationsViewController alloc]init];
+    notificationsVC.tabBarItem.title = @"Notifications";
+    
+    //Settings controller
+    MoreViewController *moreVC = [[MoreViewController alloc]init];
+    moreVC.tabBarItem.title = @"More";
+    
+    //init the UITabBarController
+    
+    self.tabBarController = [[UITabBarController alloc]init];
+    self.tabBarController.viewControllers = @[feedVC,requestsVC,messagesVC,notificationsVC,moreVC];
+    
+    //Add the tab bar controller to the window
+    MainViewController *mainVC = [[MainViewController alloc]init];
+    [self.window setRootViewController:mainVC];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
