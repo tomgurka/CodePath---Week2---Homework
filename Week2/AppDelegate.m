@@ -25,7 +25,6 @@
     
     //Kick off the show
 //    MainViewController *mainViewController = [[MainViewController alloc] init];
-//    self.window.backgroundColor = [UIColor whiteColor];
 //    self.window.rootViewController = mainViewController;
 
     //Status Bar White
@@ -37,31 +36,45 @@
     FeedViewController *feedVC = [[FeedViewController alloc]init];
     feedVC.tabBarItem.title = @"News Feed";
     feedVC.tabBarItem.image = [UIImage imageNamed:@"tabFeed"];
-    
+    UINavigationController *navFeedVC = [[UINavigationController alloc] initWithRootViewController:feedVC];
+
     //Requests controller
     RequestsViewController *requestsVC = [[RequestsViewController alloc]init];
     requestsVC.tabBarItem.title = @"Requests";
-    
+    requestsVC.tabBarItem.image = [UIImage imageNamed:@"tabRequests"];
+    UINavigationController *navRequestsVC = [[UINavigationController alloc] initWithRootViewController:requestsVC];
+
     //Messages controller
     MessagesViewController *messagesVC = [[MessagesViewController alloc]init];
     messagesVC.tabBarItem.title = @"Messages";
+    messagesVC.tabBarItem.image = [UIImage imageNamed:@"tabMessages"];
+    UINavigationController *navMessagesVC = [[UINavigationController alloc] initWithRootViewController:messagesVC];
     
     //Notifications controller
     NotificationsViewController *notificationsVC = [[NotificationsViewController alloc]init];
     notificationsVC.tabBarItem.title = @"Notifications";
+    notificationsVC.tabBarItem.image = [UIImage imageNamed:@"tabNotifications"];
+    UINavigationController *navNotifcationsVC = [[UINavigationController alloc] initWithRootViewController:notificationsVC];
     
     //Settings controller
     MoreViewController *moreVC = [[MoreViewController alloc]init];
     moreVC.tabBarItem.title = @"More";
+    moreVC.tabBarItem.image = [UIImage imageNamed:@"tabMore"];
+    UINavigationController *navMoreNVC = [[UINavigationController alloc] initWithRootViewController:moreVC];
     
-    //init the UITabBarController
-    
-    self.tabBarController = [[UITabBarController alloc]init];
-    self.tabBarController.viewControllers = @[feedVC,requestsVC,messagesVC,notificationsVC,moreVC];
-    
-    //Add the tab bar controller to the window
+    //Add the tab bar controller to the login window and kick off the show
     MainViewController *mainVC = [[MainViewController alloc]init];
     [self.window setRootViewController:mainVC];
+    
+    // Create View Controller
+
+    
+    //init the UITabBarController
+    self.tabBarController = [[UITabBarController alloc]init];
+    self.tabBarController.viewControllers = @[navFeedVC,navRequestsVC,navMessagesVC,navNotifcationsVC,navMoreNVC];
+
+    
+    //self.tabBarController.viewControllers = @[navVC];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

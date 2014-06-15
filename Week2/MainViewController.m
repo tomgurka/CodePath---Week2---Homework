@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 - (IBAction)loginPress:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+- (IBAction)editDidChange:(id)sender;
 
 //Password
 - (void)passwordMethod;
@@ -50,13 +51,16 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     // Do any additional setup after loading the view from its nib.
 
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -112,6 +116,17 @@
                      completion:nil];
 }
 
+//Fields have content?
+- (IBAction)editDidChange:(id)sender {
+    
+    if (((UITextField*)sender).text.length > 0) {
+        [_loginButton setEnabled:YES];
+    } else {
+        [_loginButton setEnabled:NO];
+    }
+}
+
+
 //Hide Keyboard on Touch
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -120,6 +135,7 @@
 
 - (IBAction)loginPress:(id)sender {
     NSLog(@"Tapped");
+    [self.loginButton setSelected:YES];
     //Hide Keyboard
     [[self view] endEditing:YES];
     //Start Indicator
@@ -130,7 +146,7 @@
 
 - (void)passwordWrong {
     NSLog(@"Alert Up!");
-    
+    [self.loginButton setSelected:NO];
     //Incorrect Password Alert
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Incorrect Password"
     message:@"The password you entered is incorrect. Please try again."
@@ -147,17 +163,23 @@
         
     {
         NSLog(@"Correct Password!");
-        //Stop Indicator
+        
+        // Stop Indicator
         [self.indicatorView stopAnimating];
-        //Call Next View
-        UIViewController *vc = [[FeedViewController alloc] init];
-        // Fade Transition
-        vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        // Call Next View
+        //FeedViewController *feedVC = [[FeedViewController alloc] init];
         
         // Add the Tab Bar Controller
-         [self presentViewController:vc animated:YES completion:nil];
         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-        [appDelegate.window setRootViewController:appDelegate.tabBarController];
+        appDelegate.tabBarController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:appDelegate.tabBarController animated:YES completion:nil];
+        
+        
+        
+        //[appDelegate.window setRootViewController:appDelegate.tabBarController];
+        
+
     }
     else
     {
@@ -172,6 +194,8 @@
     
     
 }
+
+
 @end
 
 
