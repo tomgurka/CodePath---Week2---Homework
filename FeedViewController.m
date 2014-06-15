@@ -17,6 +17,11 @@
 //Create Fake Load Method
 - (void)fakeloadMethod;
 
+
+//Nav Buttons
+- (void)onLeftButton;
+- (void)onRightButton;
+
 @end
 
 @implementation FeedViewController
@@ -36,6 +41,30 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"News Feed";
     
+    // Configure the left button
+    UIImage *leftButtonImage = [[UIImage imageNamed:@"navSearch"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:leftButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(onLeftButton)];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
+    
+    // Configure the right button
+    UIImage *rightButtonImage = [[UIImage imageNamed:@"navFriends"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:rightButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(onRightButton)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+
+    
+}
+
+
+
+
+
+// Left Nav Button
+- (void)onLeftButton {
+}
+
+// Right Nav Button
+- (void)onRightButton {
 }
 
 - (void)viewDidAppear:(BOOL)animated

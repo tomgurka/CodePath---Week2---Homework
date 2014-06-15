@@ -167,18 +167,10 @@
         // Stop Indicator
         [self.indicatorView stopAnimating];
         
-        // Call Next View
-        //FeedViewController *feedVC = [[FeedViewController alloc] init];
-        
         // Add the Tab Bar Controller
         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
         appDelegate.tabBarController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self presentViewController:appDelegate.tabBarController animated:YES completion:nil];
-        
-        
-        
-        //[appDelegate.window setRootViewController:appDelegate.tabBarController];
-        
 
     }
     else

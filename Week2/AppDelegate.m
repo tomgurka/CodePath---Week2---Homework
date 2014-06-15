@@ -15,6 +15,8 @@
 #import "MessagesViewController.h"
 #import "NotificationsViewController.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 @implementation AppDelegate
 
@@ -48,7 +50,9 @@
     MessagesViewController *messagesVC = [[MessagesViewController alloc]init];
     messagesVC.tabBarItem.title = @"Messages";
     messagesVC.tabBarItem.image = [UIImage imageNamed:@"tabMessages"];
+    
     UINavigationController *navMessagesVC = [[UINavigationController alloc] initWithRootViewController:messagesVC];
+   
     
     //Notifications controller
     NotificationsViewController *notificationsVC = [[NotificationsViewController alloc]init];
@@ -60,18 +64,24 @@
     MoreViewController *moreVC = [[MoreViewController alloc]init];
     moreVC.tabBarItem.title = @"More";
     moreVC.tabBarItem.image = [UIImage imageNamed:@"tabMore"];
-    UINavigationController *navMoreNVC = [[UINavigationController alloc] initWithRootViewController:moreVC];
+    UINavigationController *navMoreVC = [[UINavigationController alloc] initWithRootViewController:moreVC];
     
     //Add the tab bar controller to the login window and kick off the show
     MainViewController *mainVC = [[MainViewController alloc]init];
     [self.window setRootViewController:mainVC];
     
     // Create View Controller
-
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName, nil]];
+    
+    //color
+    [self.tabBarController.tabBar setTintColor:UIColorFromRGB(0x405e9c)];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x405e9c)];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackOpaque];
     
     //init the UITabBarController
     self.tabBarController = [[UITabBarController alloc]init];
-    self.tabBarController.viewControllers = @[navFeedVC,navRequestsVC,navMessagesVC,navNotifcationsVC,navMoreNVC];
+    self.tabBarController.viewControllers = @[navFeedVC,navRequestsVC,navMessagesVC,navNotifcationsVC,navMoreVC];
 
     
     //self.tabBarController.viewControllers = @[navVC];
