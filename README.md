@@ -2,7 +2,7 @@ CodePath Week 2 Homework
 ===========================
 
 
-Facebook Login Page
+Finished
    
     Tapping in the UITextField repositions the elements.
     
@@ -14,3 +14,22 @@ Facebook Login Page
     
     After 2 seconds: 
     If the password is anything else, display the password error alert.
+    
+    Navigation bar has the search button and messages button.
+    
+    Immediately after launch, display the loading indicator.
+    
+    After 2 seconds, shows the feed, which is a long image in a scrollable view.
+    
+    Working Tab Navigator
+
+
+Attempted
+
+   (optional) Add a scrollable view of the "More" page. - Note: Could not get the view to scroll correctly
+   (optional) Upon tapping Log Out, return to the login screen. 
+   
+   
+GIF
+
+   
