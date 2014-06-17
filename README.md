@@ -33,6 +33,6 @@ Attempted
    
 GIF
 
-   ![week2gif](/Week2Lice.gif)
+   ![week2gif](/Week2/Week2Lice.gif)
 
    
