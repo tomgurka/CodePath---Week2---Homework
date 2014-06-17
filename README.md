@@ -25,12 +25,14 @@ Finished
 
 
 Attempted
-
+   
    (optional) Add a scrollable view of the "More" page. - Note: Could not get the view to scroll correctly
    
    (optional) Upon tapping Log Out, return to the login screen. 
    
    
 GIF
+
+   ![week2gif](/Week2Lice.gif)
 
    
